@@ -1,3 +1,4 @@
+using Toybox.Application;
 using Toybox.WatchUi;
 using GenericChannelHeartRateBarrel as HrBarrel;
 
@@ -10,10 +11,13 @@ class GenericAntPlusHeartRateFieldView extends WatchUi.SimpleDataField {
     function initialize() {
         SimpleDataField.initialize();
         label = "Heart Rate 2";
-        
+    
         mFitContributions = new FitContributions(self);
         
-        mHrChannel = new HrBarrel.AntPlusHeartRateSensor();
+        var deviceNumber = Application.getApp().getProperty("deviceNumber");
+        var proximityPairing = Application.getApp().getProperty("proximityPairing");
+
+        mHrChannel = new HrBarrel.AntPlusHeartRateSensor(/*deviceNumber,proximityPairing*/);
         mHrChannel.open();
     }
 
@@ -23,8 +27,9 @@ class GenericAntPlusHeartRateFieldView extends WatchUi.SimpleDataField {
     // guarantee that compute() will be called before onUpdate().
     function compute(info) {
         // See Activity.Info in the documentation for available information.
-        mFitContributions.setHeartRateData(mHrChannel.data.computedHeartRate);
-        return mHrChannel.data.computedHeartRate;
+        var heartRate = mHrChannel.data.computedHeartRate;
+        mFitContributions.setHeartRateData(heartRate);
+        return heartRate > 0 ? heartRate : "--";
     }
     
     function onNextMultisportLeg() {

@@ -37,22 +37,22 @@ class FitContributions {
 
     function initialize(dataField) {
        
-        mHeartRateRecordField = dataField.createField("heartrate_2", HEART_RATE_FIELD_RECORD_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_RECORD_MESG, :mesgType=>Fit.MESG_TYPE_RECORD, :units=>HEART_RATE_UNITS });
+        mHeartRateRecordField = dataField.createField("heart_rate", HEART_RATE_FIELD_RECORD_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_RECORD_MESG, :mesgType=>Fit.MESG_TYPE_RECORD, :units=>HEART_RATE_UNITS });
         
-        mMinHeartRateSessionField = dataField.createField("min_heart_rate_2", HEART_RATE_FIELD_SESSION_MIN_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_SESSION_MIN_MESG, :mesgType=>Fit.MESG_TYPE_SESSION, :units=>HEART_RATE_UNITS });
-        mMaxHeartRateSessionField = dataField.createField("max_heart_rate_2", HEART_RATE_FIELD_SESSION_MAX_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_SESSION_MAX_MESG, :mesgType=>Fit.MESG_TYPE_SESSION, :units=>HEART_RATE_UNITS });
-        mAvgHeartRateSessionField = dataField.createField("avg_heart_rate_2", HEART_RATE_FIELD_SESSION_AVG_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_SESSION_AVG_MESG, :mesgType=>Fit.MESG_TYPE_SESSION, :units=>HEART_RATE_UNITS });
+        mMinHeartRateSessionField = dataField.createField("min_heart_rate", HEART_RATE_FIELD_SESSION_MIN_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_SESSION_MIN_MESG, :mesgType=>Fit.MESG_TYPE_SESSION, :units=>HEART_RATE_UNITS });
+        mMaxHeartRateSessionField = dataField.createField("max_heart_rate", HEART_RATE_FIELD_SESSION_MAX_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_SESSION_MAX_MESG, :mesgType=>Fit.MESG_TYPE_SESSION, :units=>HEART_RATE_UNITS });
+        mAvgHeartRateSessionField = dataField.createField("avg_heart_rate", HEART_RATE_FIELD_SESSION_AVG_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_SESSION_AVG_MESG, :mesgType=>Fit.MESG_TYPE_SESSION, :units=>HEART_RATE_UNITS });
         
-        mMinHeartRateLapField = dataField.createField("min_heart_rate_2", HEART_RATE_FIELD_LAP_MIN_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_LAP_MIN_MESG, :mesgType=>Fit.MESG_TYPE_LAP, :units=>HEART_RATE_UNITS });
-        mMaxHeartRateLapField = dataField.createField("max_heart_rate_2", HEART_RATE_FIELD_LAP_MAX_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_LAP_MAX_MESG, :mesgType=>Fit.MESG_TYPE_LAP, :units=>HEART_RATE_UNITS });
-        mAvgHeartRateLapField = dataField.createField("avg_heart_rate_2", HEART_RATE_FIELD_LAP_AVG_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_LAP_AVG_MESG, :mesgType=>Fit.MESG_TYPE_LAP, :units=>HEART_RATE_UNITS });
+        mMinHeartRateLapField = dataField.createField("min_heart_rate", HEART_RATE_FIELD_LAP_MIN_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_LAP_MIN_MESG, :mesgType=>Fit.MESG_TYPE_LAP, :units=>HEART_RATE_UNITS });
+        mMaxHeartRateLapField = dataField.createField("max_heart_rate", HEART_RATE_FIELD_LAP_MAX_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_LAP_MAX_MESG, :mesgType=>Fit.MESG_TYPE_LAP, :units=>HEART_RATE_UNITS });
+        mAvgHeartRateLapField = dataField.createField("avg_heart_rate", HEART_RATE_FIELD_LAP_AVG_ID, Fit.DATA_TYPE_UINT8, { :nativeNum=>HEART_RATE_NATIVE_NUM_LAP_AVG_MESG, :mesgType=>Fit.MESG_TYPE_LAP, :units=>HEART_RATE_UNITS });
 
 		mSessionStats = new MinMaxAvg(false);
 		mLapStats = new MinMaxAvg(false);
     }
     
     function setHeartRateData(heartrate) {
-    	mHeartRateRecordField.setData(heartrate);
+    	mHeartRateRecordField.setData(heartrate > 0 ? heartrate : 255);
     	
     	if(mTimerRunning) {
     		mSessionStats.setData(heartrate);
