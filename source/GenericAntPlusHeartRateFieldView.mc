@@ -17,7 +17,7 @@ class GenericAntPlusHeartRateFieldView extends WatchUi.SimpleDataField {
         var deviceNumber = Application.getApp().getProperty("deviceNumber");
         var proximityPairing = Application.getApp().getProperty("proximityPairing");
 
-        mHrChannel = new HrBarrel.AntPlusHeartRateSensor(/*deviceNumber,proximityPairing*/);
+        mHrChannel = new HrBarrel.AntPlusHeartRateSensor(deviceNumber, proximityPairing);
         mHrChannel.open();
     }
 
