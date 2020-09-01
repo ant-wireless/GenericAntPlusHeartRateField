@@ -12,7 +12,7 @@ class GenericAntPlusHeartRateFieldView extends WatchUi.SimpleDataField {
     
         mFitContributions = new FitContributions(self);
         
-        HeartRateSensor.getInstance().open();
+        HeartRateSensor.getInstance().pair();
 
     }
 

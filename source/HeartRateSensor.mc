@@ -14,10 +14,9 @@ class HeartRateSensor {
 	}
 	
 	private function initialize() {
-        open();
 	}
 	
-	function open() {
+	function pair() {
 	
 		if(mHrChannel != null) {
 			mHrChannel.release();

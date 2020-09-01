@@ -23,7 +23,7 @@ class GenericAntPlusHeartRateFieldApp extends Application.AppBase {
     
     // Triggered by settings change in GCM
     function onSettingsChanged() { 
-	     HeartRateSensor.getInstance().open();
+	     HeartRateSensor.getInstance().pair();
 	}
 
 }
