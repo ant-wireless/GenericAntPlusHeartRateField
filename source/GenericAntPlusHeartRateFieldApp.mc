@@ -20,5 +20,10 @@ class GenericAntPlusHeartRateFieldApp extends Application.AppBase {
     function getInitialView() {
         return [ new GenericAntPlusHeartRateFieldView() ];
     }
+    
+    // Triggered by settings change in GCM
+    function onSettingsChanged() { 
+	     HeartRateSensor.getInstance().pair();
+	}
 
 }
