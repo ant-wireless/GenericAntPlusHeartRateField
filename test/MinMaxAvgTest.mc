@@ -89,6 +89,7 @@ function minmaxavgTestAvgWithZeros(logger) {
 function minmaxavgTestAvgWithoutZeros(logger) {
 	
 	var stats = new MinMaxAvg(false);
+	stats.setData(0);
 	stats.setData(1);
 	stats.setData(2);
 	stats.setData(3);
