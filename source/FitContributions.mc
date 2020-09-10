@@ -52,7 +52,7 @@ class FitContributions {
     }
     
     function setHeartRateData(heartrate) {
-    	mHeartRateRecordField.setData(heartrate > 0 ? heartrate : 255);
+    	mHeartRateRecordField.setData(heartrate > 0 ? heartrate : 0xFF);
     	
     	if(mTimerRunning) {
     		mSessionStats.setData(heartrate);
