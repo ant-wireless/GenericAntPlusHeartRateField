@@ -1,7 +1,7 @@
 <resources>
 	<properties>
 		<property id="deviceNumber" type="number">0</property>
-		<property id="proximityPairing" type="boolean">true</property>
+		<property id="proximityPairing" type="boolean">false</property>
 	</properties>
 	
     <settings>
