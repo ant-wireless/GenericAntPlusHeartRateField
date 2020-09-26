@@ -47,7 +47,7 @@ class AppSettingsView extends WatchUi.Menu2 {
 				null,
 				"proximityPairing",
 				Application.getApp().getProperty("proximityPairing"),
-				{}//:enabled=>"On", :disabled=>"Off", :alignment=>WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT}
+				{}
 			)
 		);
 	}
