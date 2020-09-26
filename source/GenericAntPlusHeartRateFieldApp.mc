@@ -25,5 +25,8 @@ class GenericAntPlusHeartRateFieldApp extends Application.AppBase {
     function onSettingsChanged() { 
 	     HeartRateSensor.getInstance().pair();
 	}
-
+	
+	function getSettingsView() {
+		return [ new AppSettingsView(), new AppSettingsDelegate() ];
+	}
 }
