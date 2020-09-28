@@ -8,8 +8,8 @@ class AppSettingsDelegate extends WatchUi.Menu2InputDelegate {
     
 	function onSelect(item) {
 		if( item.getId().equals("deviceNumber") ) {
-			var stringPicker = new StringPicker();
-			WatchUi.pushView(stringPicker, new StringPickerDelegate(stringPicker), WatchUi.SLIDE_IMMEDIATE );
+			var deviceNumberPicker = new DeviceNumberPicker();
+			WatchUi.pushView(deviceNumberPicker, new DeviceNumberPickerDelegate(deviceNumberPicker), WatchUi.SLIDE_IMMEDIATE );
 		}
 		else if( item.getId().equals("proximityPairing") ) {
 			Application.getApp().setProperty("proximityPairing", item.isEnabled());

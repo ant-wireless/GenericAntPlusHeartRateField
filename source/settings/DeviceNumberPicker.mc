@@ -2,7 +2,7 @@ using Toybox.Application;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-class StringPicker extends WatchUi.Picker {
+class DeviceNumberPicker extends WatchUi.Picker {
     const mCharacterSet = "0123456789";
     hidden var mTitleText;
     hidden var mFactory;
@@ -65,7 +65,7 @@ class StringPicker extends WatchUi.Picker {
     }
 }
 
-class StringPickerDelegate extends WatchUi.PickerDelegate {
+class DeviceNumberPickerDelegate extends WatchUi.PickerDelegate {
     hidden var mPicker;
 
     function initialize(picker) {
